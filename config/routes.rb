@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'restaurants#index'
 
-  
+  post '/restaurants/:id(.:format)'  => 'restaurants#show'  
 
   resources :restaurants
 

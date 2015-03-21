@@ -1,40 +1,5 @@
-
-<h1>Restaurant Results:</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Address1</th>
-      <th>Address2</th>
-      <th>City</th>
-      <th>State</th>
-      <th>Zip</th>
-      <th>Up votes</th>
-      <th>Down votes</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @restaurants.each do |restaurant| %>
-      <tr>
-        <td><%= restaurant.name %></td>
-        <td><%= restaurant.address1 %></td>
-        <td><%= restaurant.address2 %></td>
-        <td><%= restaurant.city %></td>
-        <td><%= restaurant.state %></td>
-        <td><%= restaurant.zip %></td>
-        <td><%= restaurant.up_votes %></td>
-        <td><%= restaurant.down_votes %></td>
-        <td><%= link_to 'Show', restaurant %></td>
-        <td><%= link_to 'Edit', edit_restaurant_path(restaurant) %></td>
-        <td><%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Restaurant', new_restaurant_path %>
+<%= form_tag("/search", method: "get") do %>
+  <%= search_field(:name) %>
+  <%= text_field_tag(:q) %>
+  <%= submit_tag("Search") %>
+<% end %>
