@@ -40,7 +40,7 @@ class RestaurantsController < ApplicationController
   # Increases the up_votes by one, then refreshes the page
   def increase_up_votes
     @restaurant.up_votes += 1
-    format.html { redirect_to @restaurant, notice: 'Your vote was received.' }
+    format.html { redirect_to @restaurant.show, notice: 'Your vote was received.' }
     format.json { render :show, status: :ok, location: @restaurant }
   end
     

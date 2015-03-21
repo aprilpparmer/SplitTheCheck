@@ -20,7 +20,7 @@
 <div>Have you asked to split the check at this restaurant? VOTE!</div>
 <p>
    <%= button_to "Will Split", :method => "@restaurant.increase_up_votes", 
-	:class => "button", :method => :post %>
+	:class => "button", :method => :get %>
    <%= button_to "Won't Split", restaurant_path, 
 	:class => "button", :method => :get %>
 </p>
