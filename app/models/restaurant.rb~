@@ -1,3 +1,6 @@
 class Restaurant < ActiveRecord::Base
-  searchkick
+  searchkick autocomplete: ['name']
+  
+  validates :name, :uniqueness => {:scope => [:address1, :zip], message: 'This restaurant has already been created.'}
+
 end

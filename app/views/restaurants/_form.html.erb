@@ -13,24 +13,24 @@
 
   <div class="field">
     <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, :required=>true %>
   </div>
   <div class="field">
     <%= f.label "Address" %><br>
-    <%= f.text_field :address1 %><br>
+    <%= f.text_field :address1, :required=>true %><br>
     <%= f.text_field :address2 %>
   </div>
   <div class="field">
     <%= f.label :city %><br>
-    <%= f.text_field :city %>
+    <%= f.text_field :city, :required=>true %>
   </div>
   <div class="field">
     <%= f.label :state %><br>
-    <%= f.text_field :state %>
+    <%= f.text_field :state, :required=>true %>
   </div>
   <div class="field">
     <%= f.label :zip %><br>
-    <%= f.text_field :zip %>
+    <%= f.text_field :zip, :required=>true %>
   </div>
   <div class="field">
     <%= f.label 'Will split checks' %>
