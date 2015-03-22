@@ -19,7 +19,8 @@
 
 <div>Have you asked to split the check at this restaurant? VOTE!</div>
 <p>
-   <%= button_to "Will Split", controller: 'restaurants', action: 'increase_up_votes', id: '@restaurant.id' %>
+   <%= button_to "Will Split", controller: 'restaurants', 
+	action: 'increase_up_votes', id: @restaurant.id %>
 </p>
 
 <br>

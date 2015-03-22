@@ -38,3 +38,9 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+# Search gem
+gem 'searchkick'
+
+# Pagination gem
+gem 'kaminari'
+
