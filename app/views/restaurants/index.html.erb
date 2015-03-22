@@ -1,23 +1,25 @@
-<%= form_tag("/search", method: "get") do %>
-  <%= label_tag(:q, "Search for:") %>
-  <%= text_field_tag(:q) %>
+<br>
+<div style="text-align:center"><h1>Start by searching for your favorite restaurant!</h2>
+<%= form_tag(restaurants_path, method: "get") do %>
+  <%= label_tag(:search, "Search for:") %>
+  <%= text_field_tag(:search) %>
   <%= submit_tag("Search") %>
 <% end %>
 
-
-<h1>Restaurant Results:</h1>
+</style></div>
+ 
+<h2>Restaurants:</h2>
 
 <table>
   <thead>
     <tr>
       <th>Name</th>
-      <th>Address1</th>
-      <th>Address2</th>
+      <th>Address</th>
       <th>City</th>
       <th>State</th>
       <th>Zip</th>
-      <th>Up votes</th>
-      <th>Down votes</th>
+      <th>Will Split</th>
+      <th>Won't Split</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -26,16 +28,13 @@
     <% @restaurants.each do |restaurant| %>    
       <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
         <td><%= restaurant.name %></td>
-        <td><%= restaurant.address1 %></td>
-        <td><%= restaurant.address2 %></td>
+        <td><%= restaurant.address1 %><br><%= restaurant.address2 %></td>
         <td><%= restaurant.city %></td>
         <td><%= restaurant.state %></td>
         <td><%= restaurant.zip %></td>
         <td><%= restaurant.up_votes %></td>
         <td><%= restaurant.down_votes %></td>
-        <td><%= link_to 'Show', restaurant %></td>
-        <td><%= link_to 'Edit', edit_restaurant_path(restaurant) %></td>
-        <td><%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Vote', restaurant %></td>
       </tr>
     <% end %>
   </tbody>

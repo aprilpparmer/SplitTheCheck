@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'restaurants#index'
 
-  get '/restaurants/:id/increase_up_votes', to: 'restaurants#increase_up_votes'  
+  post '/restaurants/increase_up_votes/:id', to: 'restaurants#increase_up_votes'  
 
   resources :restaurants
 

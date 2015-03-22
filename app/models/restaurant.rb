@@ -1,3 +1,3 @@
 class Restaurant < ActiveRecord::Base
-  'searchkick'
+  searchkick autocomplete: ['name']
 end

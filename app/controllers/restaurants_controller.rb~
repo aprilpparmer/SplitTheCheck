@@ -1,10 +1,14 @@
 class RestaurantsController < ApplicationController
-  before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
+  before_action :set_restaurant, only: [:show, :edit, :update, :destroy, :increase_up_votes, :increase_down_votes]
 
   # GET /restaurants
   # GET /restaurants.json
   def index
-    @restaurants = Restaurant.order("name").page(params[:page]).per(10)
+    if params[:search].present?    
+      @restaurants = Restaurant.search params[:search], page: params[:page], per_page: 10
+    else
+      @restaurants = Restaurant.all
+    end
   end
 
   # GET /restaurants/1
@@ -39,7 +43,7 @@ class RestaurantsController < ApplicationController
 
   # Increases the up_votes by one, then refreshes the page
   def increase_up_votes
-    @restaurant.up_votes += 1
+    @restaurant.update_attribute(:up_votes, @restaurant.up_votes + 1)
     respond_to do |format|
     	format.html { redirect_to restaurant_path, 
 		notice: 'Your vote was received.' }
@@ -47,6 +51,15 @@ class RestaurantsController < ApplicationController
     end  
   end
     
+  # Increases the down_votes by one, then refreshes the page
+  def increase_down_votes
+    @restaurant.update_attribute(:down_votes, @restaurant.down_votes + 1)
+    respond_to do |format|
+    	format.html { redirect_to restaurant_path, 
+		notice: 'Your vote was received.' }
+    	format.json { render :show, status: :ok, location: @restaurant }
+    end  
+  end
 
   # PATCH/PUT /restaurants/1
   # PATCH/PUT /restaurants/1.json
@@ -74,7 +87,7 @@ class RestaurantsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_restaurant
+    def set_restaurant	
       @restaurant = Restaurant.find(params[:id])
     end
 
