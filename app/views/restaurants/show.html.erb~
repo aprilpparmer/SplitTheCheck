@@ -21,8 +21,9 @@
 <p>
    <%= button_to "Will Split", controller: 'restaurants', 
 	action: 'increase_up_votes', id: @restaurant.id %>
+  <%= button_to "Won't Split", controller: 'restaurants', 
+	action: 'increase_down_votes', id: @restaurant.id %>
 </p>
 
 <br>
-<%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
 <%= link_to 'Back', restaurants_path %>

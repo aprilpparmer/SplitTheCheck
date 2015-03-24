@@ -1,5 +1,5 @@
 class RestaurantsController < ApplicationController
-  before_action :set_restaurant, only: [:show, :edit, :update, :destroy, :increase_up_votes, :increase_down_votes]
+  before_action :set_restaurant, only: [:show, :increase_up_votes, :increase_down_votes]
 
   # GET /restaurants
   # GET /restaurants.json
@@ -19,10 +19,6 @@ class RestaurantsController < ApplicationController
   # GET /restaurants/new
   def new
     @restaurant = Restaurant.new
-  end
-
-  # GET /restaurants/1/edit
-  def edit
   end
 
   # POST /restaurants
@@ -59,30 +55,6 @@ class RestaurantsController < ApplicationController
 		notice: 'Your vote was received.' }
     	format.json { render :show, status: :ok, location: @restaurant }
     end  
-  end
-
-  # PATCH/PUT /restaurants/1
-  # PATCH/PUT /restaurants/1.json
-  def update
-    respond_to do |format|
-      if @restaurant.update(restaurant_params)
-        format.html { redirect_to @restaurant, notice: 'Restaurant was successfully updated.' }
-        format.json { render :show, status: :ok, location: @restaurant }
-      else
-        format.html { render :edit }
-        format.json { render json: @restaurant.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /restaurants/1
-  # DELETE /restaurants/1.json
-  def destroy
-    @restaurant.destroy
-    respond_to do |format|
-      format.html { redirect_to restaurants_url, notice: 'Restaurant was successfully destroyed.' }
-      format.json { head :no_content }
-    end
   end
 
   private

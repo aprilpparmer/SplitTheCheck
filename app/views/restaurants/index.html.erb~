@@ -35,6 +35,8 @@
         <td><%= restaurant.up_votes %></td>
         <td><%= restaurant.down_votes %></td>
         <td><%= link_to 'Vote', restaurant %></td>
+        <td><%= link_to 'Edit', edit_restaurant_path(restaurant) %></td>
+        <td><%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' } %>
       </tr>
     <% end %>
   </tbody>
