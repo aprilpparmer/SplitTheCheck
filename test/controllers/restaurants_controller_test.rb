@@ -29,11 +29,6 @@ class RestaurantsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should get edit" do
-    get :edit, id: @restaurant
-    assert_response :success
-  end
-
   test "should increase up_votes" do
     get :increase_up_votes, id: @restaurant
       @restaurant.reload
@@ -46,13 +41,5 @@ class RestaurantsControllerTest < ActionController::TestCase
       @restaurant.reload
       vote = @restaurant.down_votes
       assert_equal 2, vote
-  end
-
-  test "should destroy restaurant" do
-    assert_difference('Restaurant.count', -1) do
-      delete :destroy, id: @restaurant
-    end
-
-    assert_redirected_to restaurants_path
   end
 end
