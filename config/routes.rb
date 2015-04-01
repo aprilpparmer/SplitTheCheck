@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   root 'restaurants#index'
 
   post '/restaurants/increase_up_votes/:id', to: 'restaurants#increase_up_votes'  

@@ -44,6 +44,3 @@ gem 'searchkick'
 # Pagination gem
 gem 'kaminari'
 
-# User Authentication
-gem 'devise'
-
