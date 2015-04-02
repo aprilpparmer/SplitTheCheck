@@ -10,12 +10,14 @@
 </p>
 
 <div>
-  <u style='font-size: 1.5em'><%= @restaurant.up_votes %></u> vote(s) that this restaurant WILL split the check.
+  <u></u> vote(s) that this restaurant WILL split the check.
 </div>
 <div>
-  <u style='font-size: 1.5em'><%= @restaurant.down_votes %></u> vote(s) that this restaurant WILL NOT split the check.
+  <u></u> vote(s) that this restaurant WILL NOT split the check.
 </div>
+<br>
 
+<% if user_signed_in? %> 
 <div>Have you asked to split the check at this restaurant? VOTE!</div>
 <p>
    <%= button_to "Will Split", controller: 'restaurants', 
@@ -23,6 +25,9 @@
   <%= button_to "Won't Split", controller: 'restaurants', 
 	action: 'increase_down_votes', id: @restaurant.id %>
 </p>
+<% else %>
+  <div style="font-size: 1.5em">Please sign up or login to vote!</style></div>
+<% end %>
 
 <br>
 <%= link_to 'Back', restaurants_path %>
