@@ -1,6 +1,7 @@
 class RestaurantsController < ApplicationController
   before_action :set_restaurant, only: [:show, :increase_up_votes, :increase_down_votes]
 
+
   # GET /restaurants
   # GET /restaurants.json
   def index

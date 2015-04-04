@@ -10,18 +10,18 @@
 </p>
 
 <div>
-  <u></u> vote(s) that this restaurant WILL split the check.
+  <u><%= Vote.count_up_votes(@restaurant.id) %></u> vote(s) that this restaurant WILL split the check.
 </div>
 <div>
-  <u></u> vote(s) that this restaurant WILL NOT split the check.
+  <u><%= Vote.count_down_votes(@restaurant.id) %></u> vote(s) that this restaurant WILL NOT split the check.
 </div>
 <br>
 
 <% if user_signed_in? %> 
 <div>Have you asked to split the check at this restaurant? VOTE!</div>
 <p>
-   <%= button_to "Will Split", controller: 'restaurants', 
-	action: 'increase_up_votes', id: @restaurant.id %>
+   <%= button_to "Will Split", controller: 'votes', 
+	action: Vote.new(params[:restaurantID => @restaurant.id, :split => 't', :user => current_user]), id: @restaurant.id %>
   <%= button_to "Won't Split", controller: 'restaurants', 
 	action: 'increase_down_votes', id: @restaurant.id %>
 </p>

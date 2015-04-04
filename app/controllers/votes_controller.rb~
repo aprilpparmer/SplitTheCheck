@@ -22,18 +22,8 @@ class VotesController < ApplicationController
 
   def create
     @vote = Vote.new(vote_params)
-   
-    respond_to do |format|
-      if @vote.save
-        format.html { redirect_to @restaurant, notice: 'Your vote was received.' }
-        format.json { render :show, status: :created, location: @restaurant }
-      else
-        format.html { render :new }
-        format.json { render json: @restaurant.errors, status: :unprocessable_entity }
-      end
-    end
-        
-
+    @vote.save
+    respond_with(@vote)
   end
 
   def update

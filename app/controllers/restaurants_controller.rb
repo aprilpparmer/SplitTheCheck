@@ -1,6 +1,7 @@
 class RestaurantsController < ApplicationController
   before_action :set_restaurant, only: [:show, :increase_up_votes, :increase_down_votes]
 
+
   # GET /restaurants
   # GET /restaurants.json
   def index
@@ -35,26 +36,6 @@ class RestaurantsController < ApplicationController
         format.json { render json: @restaurant.errors, status: :unprocessable_entity }
       end
     end
-  end
-
-  # Increases the up_votes by one, then refreshes the page
-  def increase_up_votes
-    @restaurant.update_attribute(:up_votes, @restaurant.up_votes + 1)
-    respond_to do |format|
-    	format.html { redirect_to restaurant_path, 
-		notice: 'Your vote was received.' }
-    	format.json { render :show, status: :ok, location: @restaurant }
-    end  
-  end
-    
-  # Increases the down_votes by one, then refreshes the page
-  def increase_down_votes
-    @restaurant.update_attribute(:down_votes, @restaurant.down_votes + 1)
-    respond_to do |format|
-    	format.html { redirect_to restaurant_path, 
-		notice: 'Your vote was received.' }
-    	format.json { render :show, status: :ok, location: @restaurant }
-    end  
   end
 
   private

@@ -32,8 +32,8 @@
         <td><%= restaurant.city %></td>
         <td><%= restaurant.state %></td>
         <td><%= restaurant.zip %></td>
-	<td></td>
-	<td></td>
+	<td><%= Vote.count_up_votes(restaurant.id) %></td>
+	<td><%= Vote.count_down_votes(restaurant.id) %></td>
         <td><%= link_to 'Vote', restaurant %></td>
       </tr>
     <% end %>
