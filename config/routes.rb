@@ -4,8 +4,7 @@ Rails.application.routes.draw do
   devise_for :users
   root 'restaurants#index'
 
-  post '/restaurants/increase_up_votes/:id', to: 'restaurants#increase_up_votes'  
-  post '/restaurants/increase_down_votes/:id', to: 'restaurants#increase_down_votes' 
+  post '/restaurants/:id', to: 'restaurants#show'  
 
   resources :restaurants
 

@@ -5,35 +5,28 @@ class VotesController < ApplicationController
 
   def index
     @votes = Vote.all
-    respond_with(@votes)
   end
 
   def show
-    respond_with(@vote)
   end
 
   def new
     @vote = Vote.new
-    respond_with(@vote)
-  end
-
-  def edit
   end
 
   def create
-    @vote = Vote.new(vote_params)
-    @vote.save
-    respond_with(@vote)
-  end
+    @vote = Vote.create(vote_params)
+    @restaurant = Restaurant.find(params[:id])
 
-  def update
-    @vote.update(vote_params)
-    respond_with(@vote)
-  end
-
-  def destroy
-    @vote.destroy
-    respond_with(@vote)
+    respond_to do |format|
+      if @vote.save
+        format.html { redirect_to restaurant_path, notice: 'Your vote was received.' }
+        format.json { render :show, status: :created, location: @restaurant }
+      else
+        format.html { render :new }
+        format.json { render json: @restaurant.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   private

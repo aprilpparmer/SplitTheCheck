@@ -34,7 +34,7 @@
   </div>
   <div class="field">
     <%= f.label 'Will split checks' %>
-    <%= f.radio_button id: 'vote', :up_votes => 1, :checked=>false %>
+    <%= f.radio_button :up_votes, 1, :checked=>false %>
     <br>
     <%= f.label "Won't split checks" %>
     <%= f.radio_button :down_votes, 1, :checked=>false %>
