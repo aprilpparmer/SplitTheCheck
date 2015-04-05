@@ -4,8 +4,10 @@ one:
   restaurantID: 1
   split: false
   user: person@person.com
+  Restaurant.id: 1
 
 two:
   restaurantID: 2
   split: true
   user: user@user.com
+  Restaurant.id: 2

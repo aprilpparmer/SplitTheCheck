@@ -1,7 +1,9 @@
 require 'test_helper'
 
 class RestaurantsControllerTest < ActionController::TestCase
+include Devise::TestHelpers
   setup do
+    sign_in User.first
     @restaurant = restaurants(:one)
   end
 
@@ -29,17 +31,4 @@ class RestaurantsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should increase up_votes" do
-    get :increase_up_votes, id: @restaurant
-      @restaurant.reload
-      vote = @restaurant.up_votes
-      assert_equal 2, vote
-  end
-
-  test "should increase down_votes" do
-    get :increase_down_votes, id: @restaurant
-      @restaurant.reload
-      vote = @restaurant.down_votes
-      assert_equal 2, vote
-  end
 end

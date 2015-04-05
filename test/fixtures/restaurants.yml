@@ -1,21 +1,20 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  id: 1
   name: MyString
   address1: MyString
   address2: MyString
   city: MyString
   state: MyString
   zip: MyString
-  up_votes: 1
-  down_votes: 1
 
 two:
+  id: 2
   name: RandomRestaurant
   address1: RandomAddress
   address2: RandomAddress2
   city: RandomCity
   state: RandomState
   zip: RandomZip
-  up_votes: 1
-  down_votes: 1
+

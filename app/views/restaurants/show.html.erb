@@ -21,9 +21,9 @@
 <div>Have you asked to split the check at this restaurant? VOTE!</div>
 <p>
    <%= button_to "Will Split", :controller => "votes",
-	:action => "create", :vote => { :restaurantID => @restaurant.id, :split => 't', :user => current_user.email, id: @restaurant.id} %>
+	:action => "create", :vote => { :restaurantID => @restaurant.id, :split => 't', :user => current_user.email} %>
    <%= button_to "Won't Split", :controller => "votes",
-	:action => "create", :vote => { :restaurantID => @restaurant.id, :split => 'f', :user => current_user.email}, id: @restaurant.id %>
+	:action => "create", :vote => { :restaurantID => @restaurant.id, :split => 'f', :user => current_user.email} %>
 </p>
 <% else %>
   <div style="font-size: 1.5em">Please sign up or login to vote!</style></div>

@@ -27,6 +27,7 @@ class RestaurantsController < ApplicationController
   def create
     @restaurant = Restaurant.new(restaurant_params)
 
+
     respond_to do |format|
       if @restaurant.save
         format.html { redirect_to @restaurant, notice: 'Restaurant was successfully created.' }
@@ -38,26 +39,6 @@ class RestaurantsController < ApplicationController
     end
   end
 
-  # Increases the up_votes by one, then refreshes the page
-  def increase_up_votes
-    @restaurant.update_attribute(:up_votes, @restaurant.up_votes + 1)
-    respond_to do |format|
-    	format.html { redirect_to restaurant_path, 
-		notice: 'Your vote was received.' }
-    	format.json { render :show, status: :ok, location: @restaurant }
-    end  
-  end
-    
-  # Increases the down_votes by one, then refreshes the page
-  def increase_down_votes
-    @restaurant.update_attribute(:down_votes, @restaurant.down_votes + 1)
-    respond_to do |format|
-    	format.html { redirect_to restaurant_path, 
-		notice: 'Your vote was received.' }
-    	format.json { render :show, status: :ok, location: @restaurant }
-    end  
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_restaurant	
@@ -67,5 +48,9 @@ class RestaurantsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def restaurant_params
       params.require(:restaurant).permit(:name, :address1, :address2, :city, :state, :zip, :up_votes, :down_votes)
+    end
+
+    def vote_params
+      params.require(:vote).permit(:restaurantID, :split, :user)
     end
 end

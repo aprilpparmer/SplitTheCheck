@@ -27,6 +27,7 @@ class RestaurantsController < ApplicationController
   def create
     @restaurant = Restaurant.new(restaurant_params)
 
+
     respond_to do |format|
       if @restaurant.save
         format.html { redirect_to @restaurant, notice: 'Restaurant was successfully created.' }
@@ -48,4 +49,5 @@ class RestaurantsController < ApplicationController
     def restaurant_params
       params.require(:restaurant).permit(:name, :address1, :address2, :city, :state, :zip, :up_votes, :down_votes)
     end
+
 end

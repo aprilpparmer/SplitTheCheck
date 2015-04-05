@@ -16,20 +16,32 @@ class VotesController < ApplicationController
 
   def create
     @vote = Vote.create(vote_params)
-    @restaurant = Restaurant.find(params[:id])
 
     respond_to do |format|
       if @vote.save
-        format.html { redirect_to restaurant_path, notice: 'Your vote was received.' }
-        format.json { render :show, status: :created, location: @restaurant }
+        format.html { go_back, notice = 'Your vote was received.' }
+        format.json { render :show, status: :created, location: @vote }
       else
         format.html { render :new }
-        format.json { render json: @restaurant.errors, status: :unprocessable_entity }
+        format.json { render json: @vote.errors, status: :unprocessable_entity }
       end
     end
   end
 
   private
+
+  #Redirect_to_back
+  def go_back
+ 
+    #Attempt to redirect
+    redirect_to :back
+ 
+    #Catch exception and redirect to root
+    rescue ActionController::RedirectBackError
+      redirect_to root_path
+   end
+
+
     def set_vote
       @vote = Vote.find(params[:id])
     end

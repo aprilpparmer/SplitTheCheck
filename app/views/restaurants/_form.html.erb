@@ -34,10 +34,10 @@
   </div>
   <div class="field">
     <%= f.label 'Will split checks' %>
-    <%= f.radio_button :vote => { :restaurantID => @restaurant.id, :split => 't', :user => current_user.email, id: @restaurant.id}, :controller => 'votes', :action => 'create', :checked=>false %>
+    <%= f.radio_button :split, 't', :checked=>false %>
     <br>
     <%= f.label "Won't split checks" %>
-    <%= f.radio_button :split, 1, :checked=>false %>
+    <%= f.radio_button :split, 'f', :checked=>false %>
   </div>
   <div class="actions">
     <%= f.submit %>
