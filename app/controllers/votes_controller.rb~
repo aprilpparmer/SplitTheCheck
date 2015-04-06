@@ -19,7 +19,7 @@ class VotesController < ApplicationController
 
     respond_to do |format|
       if @vote.save
-        format.html { go_back, notice = 'Your vote was received.' }
+        format.html { go_back }
         format.json { render :show, status: :created, location: @vote }
       else
         format.html { render :new }
