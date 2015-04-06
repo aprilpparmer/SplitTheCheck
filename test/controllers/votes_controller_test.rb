@@ -5,7 +5,6 @@ include Devise::TestHelpers
   setup do
     sign_in User.first
     @vote = votes(:one)
-    @restaurant = restaurants(:one)
   end
 
   test "should get index" do

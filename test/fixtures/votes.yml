@@ -2,10 +2,85 @@
 
 one:
   restaurantID: 1
-  split: false
+  split: true
   user: person@person.com
 
 two:
   restaurantID: 2
-  split: true
+  split: false
   user: user@user.com
+
+three:
+  restaurantID: 1
+  split: true
+  user: person@person.com
+
+four:
+  restaurantID: 1
+  split: true
+  user: person@person.com
+five:
+  restaurantID: 1
+  split: true
+  user: person@person.com
+six:
+  restaurantID: 1
+  split: true
+  user: person@person.com
+seven:
+  restaurantID: 1
+  split: true
+  user: person@person.com
+eight:
+  restaurantID: 1
+  split: true
+  user: person@person.com
+nine:
+  restaurantID: 1
+  split: true
+  user: person@person.com
+ten:
+  restaurantID: 1
+  split: true
+  user: person@person.com
+eleven:
+  restaurantID: 2
+  split: false
+  user: user@user.com
+twelve:
+  restaurantID: 2
+  split: false
+  user: user@user.com
+thirteen:
+  restaurantID: 2
+  split: false
+  user: user@user.com
+fourteen:
+  restaurantID: 2
+  split: false
+  user: user@user.com
+fifteen:
+  restaurantID: 2
+  split: false
+  user: user@user.com
+sixteen:
+  restaurantID: 2
+  split: false
+  user: user@user.com
+seventeen:
+  restaurantID: 2
+  split: false
+  user: user@user.com
+eighteen:
+  restaurantID: 2
+  split: false
+  user: user@user.com
+nineteen:
+  restaurantID: 2
+  split: false
+  user: user@user.com
+twenty:
+  restaurantID: 2
+  split: false
+  user: user@user.com
+

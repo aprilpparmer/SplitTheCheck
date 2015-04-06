@@ -38,7 +38,6 @@
     <br>
     <%= f.label "Won't split checks" %>
     <%= f.radio_button :split, 'f', :checked=>false %>
-    <%= f.hidden_field :user, current_user.email %>
   </div>
   <div class="actions">
     <%= f.submit %>

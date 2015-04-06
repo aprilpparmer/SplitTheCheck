@@ -7,7 +7,7 @@ class VoteTest < ActiveSupport::TestCase
   end
 
   test "should count down votes" do
-    assert_equal(11, Vote.count_down_votes(2)) 
+    assert_equal(10, Vote.count_down_votes(2)) 
   end
 
 end
