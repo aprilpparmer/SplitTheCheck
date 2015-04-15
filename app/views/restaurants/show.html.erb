@@ -24,6 +24,11 @@
 	:action => "create", :vote => { :restaurantID => @restaurant.id, :split => 't', :user => current_user.email} %>
    <%= button_to "Won't Split", :controller => "votes",
 	:action => "create", :vote => { :restaurantID => @restaurant.id, :split => 'f', :user => current_user.email} %>
+<br><br>
+Add a comment:<br>
+<div><%= text_area(:comment, :body, size: "100x10") %></div>
+<%= button_to "Post Comment", :controller => "comments", :action => "create",
+	:comment => { :restaurantID => @restaurant.id, :user => current_user.email, :body => :body} %>
 </p>
 <% else %>
   <div style="font-size: 1.5em">Please sign up or login to vote!</style></div>

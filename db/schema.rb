@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150401211605) do
+ActiveRecord::Schema.define(version: 20150414133824) do
+
+  create_table "comments", force: true do |t|
+    t.string   "user"
+    t.integer  "restaurantID"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "restaurants", force: true do |t|
     t.string   "name"
@@ -20,8 +28,6 @@ ActiveRecord::Schema.define(version: 20150401211605) do
     t.string   "city"
     t.string   "state"
     t.string   "zip"
-    t.integer  "up_votes",   default: 0
-    t.integer  "down_votes", default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
