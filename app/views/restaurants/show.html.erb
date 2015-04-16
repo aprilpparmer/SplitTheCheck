@@ -29,7 +29,7 @@
 Add a comment:<br>
 <%= form_tag(:controller => "comments", :action => "create") do %>
  <%= hidden_field_tag :user, current_user.email %>
- <%= hidden_field_tag :restaurantID, @restaurant %>
+ <%= hidden_field_tag :restaurantID, @restaurant.id %>
  <%= text_area_tag :body %>
  <%= submit_tag("Comment") %>
 <% end %> 

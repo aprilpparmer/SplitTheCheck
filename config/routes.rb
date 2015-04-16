@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   devise_for :users
   root 'restaurants#index'
 
-  post '/restaurants/:id', to: 'restaurants#show'  
+  post '/restaurants/:id', to: 'restaurants#show'
+  get 'user_details' => 'restaurants#user'  
 
   controller :comments do
 	post 'comment' => :create

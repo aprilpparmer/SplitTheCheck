@@ -1,0 +1,10 @@
+<h2><strong>User Profile</strong></h2>
+<div><%= current_user.email %></div><br>
+
+<div>You made the following comments:</div>
+<p><% Comment.get_user_comments(current_user.email).each do |comment| %>
+	Restaurant: <%= comment.restaurantID %>
+	"<%= comment.body %>"<br>
+<% end %>
+</p><br>
+<%= link_to 'Back', restaurants_path %>
