@@ -50,7 +50,4 @@ class RestaurantsController < ApplicationController
       params.require(:restaurant).permit(:name, :address1, :address2, :city, :state, :zip, :up_votes, :down_votes)
     end
 
-    def vote_params
-      params.require(:vote).permit(:restaurantID, :split, :user)
-    end
 end

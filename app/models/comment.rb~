@@ -1,4 +1,8 @@
 class Comment < ActiveRecord::Base
-	belongs_to :user
-	belongs_to :restaurant
+  belongs_to :restaurant
+  def get_comments(restaurantID)
+	@comments = @comments.where(:restaurantID == restaurantID)
+  end
+
+
 end

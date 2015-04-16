@@ -10,6 +10,7 @@ class RestaurantsController < ApplicationController
     else
       @restaurants = Restaurant.order("name").page(params[:page]).per(10)
     end
+	@comments = Comment.all
   end
 
   # GET /restaurants/1

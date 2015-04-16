@@ -1,15 +1,18 @@
 Rails.application.routes.draw do
-  resources :comments
 
-  resources :votes
 
   devise_for :users
   root 'restaurants#index'
 
   post '/restaurants/:id', to: 'restaurants#show'  
 
-  resources :restaurants
+  controller :comments do
+	post 'comment' => :create
+  end
 
+  resources :restaurants
+  resources :comments
+  resources :votes
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

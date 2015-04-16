@@ -5,16 +5,13 @@ class CommentsController < ApplicationController
 
   def index
     @comments = Comment.all
-    respond_with(@comments)
   end
 
   def show
-    respond_with(@comment)
   end
 
   def new
     @comment = Comment.new
-    respond_with(@comment)
   end
 
   def edit
@@ -28,16 +25,13 @@ class CommentsController < ApplicationController
         format.html { go_back }
         format.json { render :show, status: :created, location: @comment }
       else
-        format.html { render :new }
+        format.html { go_back }
         format.json { render json: @comment.errors, status: :unprocessable_entity }
       end 
     end
   end
 
-  def update
-    @comment.update(comment_params)
-    respond_with(@comment)
-  end
+
 
   def destroy
     @comment.destroy
@@ -62,7 +56,7 @@ class CommentsController < ApplicationController
     end
 
     def comment_params
-      params.require(:comment).permit(:user, :restaurantID, :body)
+      params.permit(:comment, :user, :restaurantID, :body)
     end
 end
 
