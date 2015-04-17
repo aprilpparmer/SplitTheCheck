@@ -9,6 +9,13 @@
    <%= @restaurant.zip %>
 </p>
 
+<% if Favorite.is_favorite(current_user.email, @restaurant.id) %>
+  <div>**This restaurant is marked as one of your favorites!**</div>
+<% else %>
+  <div><%= button_to "Make Favorite", :controller => "favorites", :action => "create", :favorite => {:user => current_user.email, :restaurantID => @restaurant.id } %></div>
+<% end %>
+
+<br>
 <div>
   <u><%= Vote.count_up_votes(@restaurant.id) %></u> vote(s) that this restaurant WILL split the check.
 </div>
@@ -30,7 +37,7 @@ Add a comment:<br>
 <%= form_tag(:controller => "comments", :action => "create") do %>
  <%= hidden_field_tag :user, current_user.email %>
  <%= hidden_field_tag :restaurantID, @restaurant.id %>
- <%= text_area_tag :body %>
+ <%= text_area_tag :body %><br>
  <%= submit_tag("Comment") %>
 <% end %> 
 </p>

@@ -1,0 +1,14 @@
+class Favorite < ActiveRecord::Base
+  def self.is_favorite(user, restaurant)
+    c = Favorite.where(:user => user, :restaurantID => restaurant).count
+    if c > 0
+	return true
+    else return false
+    end
+  end
+
+  def self.get_user_favorites(user_param)
+    Restaurant.joins('LEFT OUTER JOIN favorites ON restaurants.id = favorites.restaurantID').where('favorites.user = ?', user_param)
+  end
+
+end

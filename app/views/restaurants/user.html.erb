@@ -7,4 +7,10 @@
 	"<%= comment.body %>"<br>
 <% end %>
 </p><br>
+<div>You selected the following restaurants as favorites:</div>
+<% @favorites = Favorite.get_user_favorites(current_user.email) %>
+<p><% @favorites.each do |favorite| %>
+	<%= favorite.name %><br>
+<% end %>
+</p><br>
 <%= link_to 'Back', restaurants_path %>

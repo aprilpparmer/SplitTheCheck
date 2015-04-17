@@ -3,10 +3,6 @@ class Restaurant < ActiveRecord::Base
 	def get_comments(restaurantID)
 		Comment.where(:restaurantID => restaurantID)
   	end
-
-	def self.get_user_comments(user)
-		Comment.where(:user => user)
-	end
   end
   searchkick autocomplete: ['name']  
 

@@ -3,8 +3,14 @@
 
 <div>You made the following comments:</div>
 <p><% Comment.get_user_comments(current_user.email).each do |comment| %>
-	Restaurant: <%= comment.restaurantID %>
+	**Restaurant: <%= comment.restaurantID %>
 	"<%= comment.body %>"<br>
+<% end %>
+</p><br>
+<div>You selected the following restaurants as favorites:</div>
+<% @favorites = Favorite.get_user_favorites(current_user.email) %>
+<p><% @favorites.each do |favorite| %>
+	<%= favorite.name %><br>
 <% end %>
 </p><br>
 <%= link_to 'Back', restaurants_path %>
