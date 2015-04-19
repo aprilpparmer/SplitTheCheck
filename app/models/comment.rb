@@ -1,8 +1,12 @@
 class Comment < ActiveRecord::Base
   belongs_to :restaurant
 
-  def self.get_user_comments(user)
-	Comment.where(:user => user)
+  def self.get_user_comments(user_param)
+    Comment.joins('LEFT OUTER JOIN restaurants ON restaurants.id = comments.restaurantID').where('comments.user = ?', user_param)
+  end
+
+  def self.get_comment_restaurant_name(restaurant)
+    Restaurant.where(:id => restaurant).first
   end
 
 end

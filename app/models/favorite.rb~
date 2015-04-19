@@ -8,7 +8,11 @@ class Favorite < ActiveRecord::Base
   end
 
   def self.get_user_favorites(user_param)
-    Restaurant.joins('LEFT OUTER JOIN favorites ON restaurants.id = favorites.restaurantID WHERE favorites.user = 'user_param)
+    Restaurant.joins('LEFT OUTER JOIN favorites ON restaurants.id = favorites.restaurantID').where('favorites.user = ?', user_param)
+  end
+
+  def get_restaurant_name(restaurantID)
+    Restaurant.select(:name).where(:id => restaurantID)
   end
 
 end

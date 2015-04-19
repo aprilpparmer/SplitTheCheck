@@ -3,7 +3,7 @@
 
 <div>You made the following comments:</div>
 <p><% Comment.get_user_comments(current_user.email).each do |comment| %>
-	**Restaurant: <%= comment.restaurantID %>
+	**Restaurant: <%= Comment.get_comment_restaurant_name(comment.id).name %>
 	"<%= comment.body %>"<br>
 <% end %>
 </p><br>
