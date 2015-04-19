@@ -3,10 +3,22 @@
 
 <div>You made the following comments:</div>
 <p><% Comment.get_user_comments(current_user.email).each do |comment| %>
-	**Restaurant: <%= Comment.get_comment_restaurant_name(comment.id).name %>
+	<%= Comment.get_comment_restaurant_name(comment.id).name %>: 
 	"<%= comment.body %>"<br>
 <% end %>
 </p><br>
+<div>Your votes:</div>
+<p><% Vote.get_user_votes(current_user.email).each do |vote| %>
+	<%= Vote.get_vote_restaurant_name(vote.restaurantID).name %>
+	<% if vote.split == true %>
+	Will Split
+	<% else %>
+	Won't Split
+	<% end %>
+<br>
+<% end %>
+</p><br>	
+
 <div>You selected the following restaurants as favorites:</div>
 <% @favorites = Favorite.get_user_favorites(current_user.email) %>
 <p><% @favorites.each do |favorite| %>
